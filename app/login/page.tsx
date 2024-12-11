@@ -15,9 +15,10 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-
+import { useToast } from "@/hooks/use-toast"
 export default function Home() {
-  const [data, setData] = React.useState<string | null>(null);
+  const { toast } = useToast()
+
   const [email, setEmail] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");
 
@@ -32,10 +33,29 @@ export default function Home() {
       });
 
       const result = await response.json();
-      setData(result.message);
+
+      if (response.status == 401) {
+        toast({
+          title: "Acesso não autorizado.",
+          description: result.error,
+          variant: "destructive",
+        });
+        return
+      }
+
+      toast({
+        title: "Login bem-sucedido!",
+        description: result.message,
+        variant: "default",
+      });
     } catch (error) {
       console.error(error);
-      setData("Erro ao buscar dados.");
+      
+      toast({
+        title: "Erro no servidor",
+        description: "Não foi possível realizar o login. Tente novamente mais tarde.",
+        variant: "destructive",
+      });
     }
   };
 
@@ -91,7 +111,6 @@ export default function Home() {
               <Link href="../login/signup" className="underline">
                 Crie uma!
               </Link>
-              {data && <p className="mt-4">{data}</p>}
             </div>
           </CardContent>
         </Card>
