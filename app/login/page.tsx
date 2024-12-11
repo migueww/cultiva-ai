@@ -57,7 +57,7 @@ export default function Home() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="carlito.acutis@hotmail.com"
+                  placeholder="exemplo@email.com"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -73,6 +73,7 @@ export default function Home() {
                 <Input
                   id="password"
                   type="password"
+                  placeholder="*********"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
