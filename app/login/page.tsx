@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { ThemeToggleDropdown } from "@/components/theme-toggle";
+import { useRouter } from "next/navigation";
 
 import Link from "next/link"
 
@@ -16,8 +17,10 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/hooks/use-toast"
+
 export default function Home() {
-  const { toast } = useToast()
+  const { toast } = useToast();
+  const router = useRouter();
 
   const [email, setEmail] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");
@@ -48,6 +51,8 @@ export default function Home() {
         description: result.message,
         variant: "default",
       });
+
+      router.push("/");
     } catch (error) {
       console.error(error);
       
