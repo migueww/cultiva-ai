@@ -2,16 +2,16 @@
 
 import * as React from "react"
 import {
-  AudioWaveform,
+  UtilityPole,
   BookOpen,
   Bot,
-  Command,
+  Flower2,
   Frame,
-  GalleryVerticalEnd,
+  Sprout,
   Map,
   PieChart,
   Settings2,
-  SquareTerminal,
+  Leaf,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -28,32 +28,32 @@ import {
 
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "Miguel Barcellos",
+    email: "miguew.png@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
   teams: [
     {
-      name: "Acme Inc",
-      logo: GalleryVerticalEnd,
+      name: "Miguel",
+      logo: Sprout,
       plan: "Enterprise",
     },
     {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
+      name: "Miguel",
+      logo: UtilityPole,
       plan: "Startup",
     },
     {
-      name: "Evil Corp.",
-      logo: Command,
+      name: "Miguel",
+      logo: Flower2,
       plan: "Free",
     },
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Histórico",
       url: "#",
-      icon: SquareTerminal,
+      icon: Leaf,
       isActive: true,
       items: [
         {
