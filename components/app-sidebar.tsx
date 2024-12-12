@@ -6,18 +6,18 @@ import {
   BookOpen,
   Bot,
   Flower2,
-  Frame,
+  // Frame,
   Sprout,
-  Map,
-  PieChart,
+  // Map,
+  // PieChart,
   Settings2,
   Leaf,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
+// import { NavProjects } from "@/components/nav-projects"
 import { NavUser } from "@/components/nav-user"
-import { TeamSwitcher } from "@/components/team-switcher"
+import { ModelSwitcher } from "@/components/model-switcher"
 import {
   Sidebar,
   SidebarContent,
@@ -32,22 +32,22 @@ const data = {
     email: "miguew.png@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
-  teams: [
+  models: [
     {
-      name: "Miguel",
+      name: "Setor A",
       logo: Sprout,
-      plan: "Enterprise",
+      categoria: "Monocultura",
     },
     {
-      name: "Miguel",
+      name: "Setor B",
       logo: UtilityPole,
-      plan: "Startup",
+      categoria: "Monocultura",
     },
     {
-      name: "Miguel",
+      name: "Setor C",
       logo: Flower2,
-      plan: "Free",
-    },
+      categoria: "Policultura",
+    }
   ],
   navMain: [
     {
@@ -57,26 +57,26 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "Relatórios",
           url: "#",
         },
         {
-          title: "Starred",
+          title: "Relatórios salvos",
           url: "#",
         },
         {
-          title: "Settings",
+          title: "Configurações",
           url: "#",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Modelos",
       url: "#",
       icon: Bot,
       items: [
         {
-          title: "Genesis",
+          title: "Gênesis",
           url: "#",
         },
         {
@@ -90,20 +90,20 @@ const data = {
       ],
     },
     {
-      title: "Documentation",
+      title: "Documentação",
       url: "#",
       icon: BookOpen,
       items: [
         {
-          title: "Introduction",
+          title: "Introdução",
           url: "#",
         },
         {
-          title: "Get Started",
+          title: "Início",
           url: "#",
         },
         {
-          title: "Tutorials",
+          title: "Tutoriais",
           url: "#",
         },
         {
@@ -113,57 +113,57 @@ const data = {
       ],
     },
     {
-      title: "Settings",
+      title: "Configurações",
       url: "#",
       icon: Settings2,
       items: [
         {
-          title: "General",
+          title: "Geral",
           url: "#",
         },
         {
-          title: "Team",
+          title: "Culturas",
           url: "#",
         },
         {
-          title: "Billing",
+          title: "Preços",
           url: "#",
         },
         {
-          title: "Limits",
+          title: "Limites",
           url: "#",
         },
       ],
     },
   ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
-    },
-  ],
+  // projects: [
+  //   {
+  //     name: "Explorar",
+  //     url: "#",
+  //     icon: Frame,
+  //   },
+  //   {
+  //     name: "Informações",
+  //     url: "#",
+  //     icon: PieChart,
+  //   },
+  //   {
+  //     name: "Localização",
+  //     url: "#",
+  //     icon: Map,
+  //   },
+  // ],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <ModelSwitcher models={data.models} />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
