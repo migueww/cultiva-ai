@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export function ThemeToggleDropdown() {
+export function ButtonThemeToggleDropdown() {
   const { setTheme } = useTheme();
 
   return (
@@ -36,5 +36,48 @@ export function ThemeToggleDropdown() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+  );
+}
+export function SidebarThemeToggleDropdown() {
+  const { setTheme } = useTheme();
+
+  return (
+    <DropdownMenuItem>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <div className="flex items-center gap-2">
+            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <span>Tema</span>
+          </div>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuItem
+            onClick={() => {
+              setTheme("light");
+              window.location.reload();
+            }}
+          >
+            Claro
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => {
+              setTheme("dark");
+              window.location.reload();
+            }}
+          >
+            Escuro
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => {
+              setTheme("system");
+              window.location.reload();
+            }}
+          >
+            Sistema
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </DropdownMenuItem>
   );
 }

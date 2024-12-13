@@ -29,6 +29,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
+import { SidebarThemeToggleDropdown } from "./theme-toggle"
 
 export function NavUser({
   user,
@@ -85,6 +86,7 @@ export function NavUser({
                 <Sparkles />
                 Magia
               </DropdownMenuItem>
+              <SidebarThemeToggleDropdown />
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>

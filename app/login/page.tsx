@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ThemeToggleDropdown } from "@/components/theme-toggle";
+import { ButtonThemeToggleDropdown } from "@/components/theme-toggle";
 import { useRouter } from "next/navigation";
 
 import Link from "next/link"
@@ -67,7 +67,7 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[0px_1fr_0px] items-center justify-items-center min-h-screen gap-16 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-2 row-start-2 items-center sm:items-start">
-        <ThemeToggleDropdown />
+        <ButtonThemeToggleDropdown />
         <Card className="mx-auto max-w-sm">
           <CardHeader>
             <CardTitle className="text-2xl">Login</CardTitle>
