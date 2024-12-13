@@ -18,15 +18,6 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 
-const chartData = [
-  { month: "January", batata: 200, cenoura: 80 },
-  { month: "February", batata: 305, cenoura: 200 },
-  { month: "March", batata: 237, cenoura: 120 },
-  { month: "April", batata: 73, cenoura: 190 },
-  { month: "May", batata: 209, cenoura: 130 },
-  { month: "June", batata: 150, cenoura: 180 },
-]
-
 const chartConfig = {
   batata: {
     label: "Batata",
@@ -38,13 +29,24 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function PolygonalChart() {
+type ChartData = {
+  label: string;
+  [key: string]: number | string;
+};
+
+type PolygonalChartProps = {
+  title: string;
+  description: string;
+  data: ChartData[];
+};
+
+export function PolygonalChart({ title, description, data }: PolygonalChartProps) {
   return (
     <Card>
       <CardHeader className="items-center pb-4">
-        <CardTitle>Comparativo</CardTitle>
+        <CardTitle>{title}</CardTitle>
         <CardDescription>
-          Produção nos ultímos 6 meses.
+          {description}
         </CardDescription>
       </CardHeader>
       <CardContent className="pb-0">
@@ -52,12 +54,12 @@ export function PolygonalChart() {
           config={chartConfig}
           className="mx-auto aspect-square max-h-[250px]"
         >
-          <RadarChart data={chartData}>
+          <RadarChart data={data}>
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent indicator="line" />}
             />
-            <PolarAngleAxis dataKey="month" />
+            <PolarAngleAxis dataKey="label" />
             <PolarGrid />
             <Radar
               dataKey="batata"
@@ -70,10 +72,10 @@ export function PolygonalChart() {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          Aumento de 5.2% nesse mês<TrendingUp className="h-4 w-4" />
         </div>
         <div className="flex items-center gap-2 leading-none text-muted-foreground">
-          January - June 2024
+          Julho - Dezembro 2024
         </div>
       </CardFooter>
     </Card>
