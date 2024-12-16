@@ -17,6 +17,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+import { useEffect, useState } from "react"
 
 const chartConfig = {
   batata: {
@@ -28,7 +29,6 @@ const chartConfig = {
     color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig
-
 type ChartData = {
   label: string;
   [key: string]: number | string;
@@ -41,6 +41,23 @@ type PolygonalChartProps = {
 };
 
 export function PolygonalChart({ title, description, data }: PolygonalChartProps) {
+  const [colors, setColors] = useState<string[]>([]);
+
+  useEffect(() => {
+    const getCSSColors = () => {
+      const style = getComputedStyle(document.documentElement);
+      const extractedColors = [];
+      for (let i = 1; i <= 5; i++) {
+        extractedColors.push(`hsl(${style.getPropertyValue(`--chart-${i}`).trim()})`);
+      }
+      return extractedColors;
+    };
+
+    setColors(getCSSColors());
+  }, []);
+
+  const keys = Object.keys(data[0]).filter((key) => key !== "label");
+
   return (
     <Card>
       <CardHeader className="items-center pb-4">
@@ -61,12 +78,15 @@ export function PolygonalChart({ title, description, data }: PolygonalChartProps
             />
             <PolarAngleAxis dataKey="label" />
             <PolarGrid />
-            <Radar
-              dataKey="batata"
-              fill="var(--color-batata)"
-              fillOpacity={0.6}
-            />
-            <Radar dataKey="cenoura" fill="var(--color-cenoura)" />
+            {keys.map((key, index) => (
+              <Radar
+                key={key}
+                dataKey={key}
+                stroke={colors[index % colors.length]}
+                fill={colors[index % colors.length]}
+                fillOpacity={0.6}
+              />
+            ))}
           </RadarChart>
         </ChartContainer>
       </CardContent>

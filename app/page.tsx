@@ -2,29 +2,29 @@ import { PolygonalChart } from '@/components/use-chart';
 import { Card } from '@/components/ui/card';
 
 export default function Home() {
-  const chartConfig1 = [
-    { label: "Talhão A", batata: 500, cenoura: 300 },
-    { label: "Talhão B", batata: 700, cenoura: 450 },
-    { label: "Talhão C", batata: 600, cenoura: 350 },
+  const chartData1 = [
+    { label: "Talhão A", batata: 500, cenoura: 300, soja: 100 },
+    { label: "Talhão B", batata: 700, cenoura: 450, soja: 200 },
+    { label: "Talhão C", batata: 600, cenoura: 350, soja: 150 },
   ];
 
-  const chartConfig2 = [
-    { label: "Primavera", batata: 800, cenoura: 500 },
-    { label: "Verão", batata: 950, cenoura: 600 },
-    { label: "Outono", batata: 700, cenoura: 400 },
-    { label: "Inverno", batata: 650, cenoura: 350 },
+  const chartData2 = [
+    { label: "Primavera", batata: 800, cenoura: 500, soja: 200 },
+    { label: "Verão", batata: 950, cenoura: 600, soja: 300 },
+    { label: "Outono", batata: 700, cenoura: 400, soja: 150 },
+    { label: "Inverno", batata: 650, cenoura: 350, soja: 100 },
   ];
 
-  const chartConfig3 = [
-    { label: "Solo Arenoso", batata: 400, cenoura: 250 },
-    { label: "Solo Argiloso", batata: 600, cenoura: 400 },
-    { label: "Solo Orgânico", batata: 750, cenoura: 500 },
+  const chartData3 = [
+    { label: "Solo Arenoso", batata: 400, cenoura: 250, soja: 150 },
+    { label: "Solo Argiloso", batata: 600, cenoura: 400, soja: 200 },
+    { label: "Solo Orgânico", batata: 750, cenoura: 500, soja: 300 },
   ];
 
-  const chartConfig4 = [
-    { label: "Rotação 1 (Batata-Cenoura)", batata: 800, cenoura: 450 },
-    { label: "Rotação 2 (Batata-Milho)", batata: 900, cenoura: 0 },
-    { label: "Rotação 3 (Cenoura-Soja)", batata: 0, cenoura: 600 },
+  const chartData4 = [
+    { label: "Rotação 1 (Batata-Cenoura)", batata: 800, cenoura: 450, soja: 200 },
+    { label: "Rotação 2 (Batata-Milho)", batata: 900, cenoura: 0, soja: 300 },
+    { label: "Rotação 3 (Cenoura-Soja)", batata: 0, cenoura: 600, soja: 400 },
   ];
 
   return (
@@ -41,7 +41,7 @@ export default function Home() {
           <PolygonalChart
             title="Produtividade por Talhão"
             description="Comparação da produção de Batata e Cenoura em diferentes talhões"
-            data={chartConfig1}
+            data={chartData1}
           />
         </Card>
 
@@ -49,7 +49,7 @@ export default function Home() {
           <PolygonalChart
             title="Produtividade por Estação"
             description="Impacto das estações do ano na produção agrícola"
-            data={chartConfig2}
+            data={chartData2}
           />
         </Card>
 
@@ -57,7 +57,7 @@ export default function Home() {
           <PolygonalChart
             title="Produtividade por Tipo de Solo"
             description="Comparativo de produção de Batata e Cenoura em solos diferentes"
-            data={chartConfig3}
+            data={chartData3}
           />
         </Card>
 
@@ -65,7 +65,7 @@ export default function Home() {
           <PolygonalChart
             title="Eficiência de Rotações de Culturas"
             description="Resultados de diferentes sistemas de rotação de culturas"
-            data={chartConfig4}
+            data={chartData4}
           />
         </Card>
       </main>
