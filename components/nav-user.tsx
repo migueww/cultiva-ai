@@ -30,6 +30,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { SidebarThemeToggleDropdown } from "./theme-toggle"
+import { useRouter } from "next/navigation"
 
 export function NavUser({
   user,
@@ -40,7 +41,24 @@ export function NavUser({
     avatar: string
   }
 }) {
+  const router = useRouter();
   const { isMobile } = useSidebar()
+
+  const handleLogout = async () => {
+      try {
+          const response = await fetch("/api/logout", {
+              method: "POST",
+          });
+
+          if (response.ok) {
+              router.push("/login");
+          } else {
+              console.error("Erro ao realizar logout");
+          }
+      } catch (error) {
+          console.error("Erro no servidor:", error);
+      }
+  };
 
   return (
     <SidebarMenu>
@@ -104,7 +122,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout}>
               <LogOut />
               Log out
             </DropdownMenuItem>

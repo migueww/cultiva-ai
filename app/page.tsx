@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div className="grid grid-cols-1 gap-16 p-8 sm:p-20 min-h-screen">
       <header className="text-center">
-        <h1 className="text-3xl font-bold">Painel de Análise Agrícola</h1>
+        <h1 className="text-3xl font-bold">Painel de geral</h1>
         <p className="text-lg text-gray-600">
           Visualize o desempenho e a produtividade das suas plantações em diferentes contextos.
         </p>

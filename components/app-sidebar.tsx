@@ -51,23 +51,19 @@ const data = {
   ],
   navMain: [
     {
-      title: "Histórico",
+      title: "Culturas",
       url: "#",
       icon: Leaf,
       isActive: true,
       items: [
         {
-          title: "Relatórios",
-          url: "#",
+          title: "Monocultura",
+          url: "/culturas/monocultura",
         },
         {
-          title: "Relatórios salvos",
-          url: "#",
-        },
-        {
-          title: "Configurações",
-          url: "#",
-        },
+          title: "Policultura",
+          url: "/culturas/policultura",
+        }
       ],
     },
     {
@@ -119,19 +115,15 @@ const data = {
       items: [
         {
           title: "Geral",
-          url: "#",
+          url: "/settings#general",
         },
         {
-          title: "Culturas",
-          url: "#",
+          title: "Notificações",
+          url: "/settings#notifications",
         },
         {
-          title: "Preços",
-          url: "#",
-        },
-        {
-          title: "Limites",
-          url: "#",
+          title: "Aparência",
+          url: "/settings#appearance",
         },
       ],
     },
